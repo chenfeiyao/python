@@ -1,0 +1,76 @@
+# python
+#列表
+
+
+#格式  a_list = ['aaa','bbb','ccc','ddd']
+
+a_list.extend
+a_list.append
+a_list.append(30)
+#列表的尾部追加
+
+for i in range(30):a_list.append(i)
+
+
+a_list.index('ddd')
+#查看a_list列表中'ddd'的位置
+
+a_list[a_list.index(25)]
+
+a_list.insert
+a_list.insert(4,'eee')
+#在列表第4个位置插入eee
+
+a_list.insert(a_list.index(25),'kkk')
+#在列表存放25的位置插入kkk
+
+
+
+a_list.remove
+a_list.remove('kkk')
+#删除第一个kkk
+
+a_list.count('kkk')
+#统计列表有多少个KKK
+
+a_list.pop()
+#把列表最后一个位置数据删除。
+a_list.pop(3)
+#把列表第4个位置数据删除。
+
+a_list.reverse()
+#把列表数据反转
+
+a_list.sort()
+#列表排序，先数字，小大写字母顺序排序。
+
+b=[xxx,yyy,zzz]
+a_list.extend(b)
+#把列表b数据元素追加到a_list尾部。
+
+#extend()接受一个列表参数，把参数列表的元素添加到列表的尾部，
+#append()接受一个对象参数，把对象添加到列表的尾部
+
+a.list[4] = 'jjj'
+#把第5个位置的元素修改为jjj
+
+a.list[2:6]
+#切片
+
+c=[x for x in range(100)]
+c[0:99:2]
+1-100偶数
+
+c[1:99:2]
+1-100奇数
+
+
+元组
+#内容一但生成，不可修改 
+#格式 a_List = ('aaa','bbb','ccc','ddd')
+
+e = (1,2,3,4,5,6,7,8,9)
+
+#只能count，index
+e.count
+e.index
