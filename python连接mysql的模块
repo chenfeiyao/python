@@ -1,0 +1,52 @@
+# python
+
+http://mirrors.163.com/centos/6/os/x86_64/Packages/
+
+python连接mysql的模块
+
+rpm -q MySQL-python
+#检查是否安装MySQL-python模块
+
+python
+>>> import MySQLdb
+>>> import tab
+>>> conn = MySQLdb.connect(user='root',passwd='',host='127.0.0.1')
+>>> cur = conn.cursor()
+>>> conn.select_db('mht_resource')
+#选择库 mht_resource
+
+>>> cur.execute("insert into t_users(username,name,password,enabled) value('PJ','pj','mht@paojiao','1')")
+#t_users表插入一条记录（方法一）
+
+#sqli = "insert into t_users(username,name,password,enabled) value('PJ','pj','mht@paojiao','1')"
+sqli = "insert into t_users(username,name,password,enabled) value(%s,%s,%s,%s)"
+cur.execute(sqli,('A','a','a@paojiao.cn','1'))
+#t_users表插入一条记录（方法二）
+
+sqlis = "insert into t_users(username,name,password,enabled) values(%s,%s,%s,%s)"
+cur.executemany(sqlis,[('A','a','a@paojiao.cn','1'),('B','b','b@paojiao.cn','1'),('C','c','c@paojiao.cn','1')])
+#插入多条记录
+
+cur.execute('delete from t_users  where id=7')
+#删除一条记录
+ cur.execute("delete from t_users  where name='b'")
+#删除一条记录
+
+cur.execute("update t_users  set name='b',username='B',password='b@paojiao.cn' where id='5'")
+#修改一条记录
+
+cur.execute("select * from t_users")
+#查询表总多少条记录
+
+cur.fetchone()
+cur.scroll(0,'absolute')
+cur.fetchmany(4)
+
+cur.fetchmany(cur.execute("select * from t_users"))
+#查询表所有内容
+
+>>> cur.close()
+>>> conn.close()
+#操作后注意关闭在退出
+
+
